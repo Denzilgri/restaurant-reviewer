@@ -119,14 +119,18 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  const headerDiv = document.createElement('div');
+  headerDiv.appendChild(name);
+  headerDiv.className = 'review-provider';
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  headerDiv.appendChild(date);
+
+  li.appendChild(headerDiv);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
+  rating.innerHTML = `<span class="review-rating">Rating: ${review.rating}</span>`;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
